@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+<!--  1. 提取list集合类型属性注入 -->
+    <util:list id="bookList">
+        <value>sdas</value>
+        <value>sss</value>
+        <value>1111s</value>
+    </util:list>
+<!--2.提取list集合类型属性注入使用-->
+<!--    <bean id="book" class="com.atguigu.spring5.collectionType.Book">-->
+<!--        <property name="list" ref="bookList"></property>-->
+<!--    </bean>-->
+
+<!--    单实例和设置多实例
+singleton ==默认单实例
+加载spring配置文件的时候就会创建单实例对象
+prototype==多实例
+不是加载是spring配置文件的时候创建的对象。在调用getBean()方法的时候创建多实例对象
+-->
+    <bean id="book" class="com.atguigu.spring5.collectionType.Book" scope="prototype">
+        <property name="list" ref="bookList"></property>
+    </bean>
+</beans>

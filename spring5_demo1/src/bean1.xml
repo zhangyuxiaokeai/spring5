@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    集合类行的属性注入-->
+    <bean id="stu" class="com.atguigu.spring5.collectionType.Stu">
+<!--        数组类型的属性注入-->
+        <property name="course">
+            <array>
+                <value>JAVA课程</value>
+                <value>c课程</value>
+                <value>s课程</value>
+                <value>Jq课程</value>
+            </array>
+        </property>
+<!--        list类型-->
+        <property name="list">
+            <list>
+                <value>小王</value>
+                <value>小z</value>
+                <value>小2</value>
+            </list>
+        </property>
+<!--        map类型-->
+        <property name="maps">
+            <map>
+                <entry key="1" value="2"></entry>
+                <entry key="2" value="3"></entry>
+                <entry key="3" value="4"></entry>
+            </map>
+        </property>
+<!--set类型-->
+        <property name="set">
+            <set>
+                <value>猪猪侠</value>
+                <value>潮热强</value>
+                <value>博士生</value>
+            </set>
+        </property>
+<!--        注入List集合类型，值是对象-->
+        <property name="courseList" >
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+                <ref bean="course3"></ref>
+            </list>
+        </property>
+    </bean>
+<!--    创建多个course对象-->
+    <bean id="course1" class="com.atguigu.spring5.collectionType.Course">
+        <property name="course" value="Spring4框架"></property>
+    </bean>
+    <bean id="course2" class="com.atguigu.spring5.collectionType.Course">
+        <property name="course" value="Spring5框架"></property>
+    </bean>
+    <bean id="course3" class="com.atguigu.spring5.collectionType.Course">
+        <property name="course" value="Spring6框架"></property>
+    </bean>
+</beans>
